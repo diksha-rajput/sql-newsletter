@@ -6,17 +6,21 @@ const Analytics = require('../models/Analytics');
 class EmailService {
   constructor() {
     console.log('Initializing EmailService...');
-    console.log('Using Gmail user:', process.env.GMAIL_USER);
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error('ERROR: GMAIL_USER or GMAIL_APP_PASSWORD not set in environment variables');
+    console.log('Using SendGrid SMTP with user:', process.env.SENDGRID_USER);
+    if (!process.env.SENDGRID_USER || !process.env.SENDGRID_PASS) {
+      console.error('ERROR: SENDGRID_USER or SENDGRID_PASS not set in environment variables');
     }
+
     this.transport = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.sendgrid.net',
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
+        user: process.env.SENDGRID_USER, // usually "apikey"
+        pass: process.env.SENDGRID_PASS  // your SendGrid API key
       }
     });
+
     console.log('Nodemailer transporter created.');
   }
 
@@ -37,7 +41,7 @@ class EmailService {
       }
 
       const mailOptions = {
-        from: `SQL Newsletter <${process.env.GMAIL_USER}>`,
+        from: `SQL Newsletter <${process.env.ADMIN_EMAIL || process.env.SENDGRID_FROM_EMAIL || 'noreply@example.com'}>`, // Use ADMIN_EMAIL if set or fallback
         to: Array.isArray(to) ? to.join(', ') : to,
         subject: subject,
         html: finalHtmlContent
@@ -163,7 +167,7 @@ class EmailService {
             <p style="color: #666; margin-bottom: 20px;">Your subscription: <strong>${user.subscriptionType.toUpperCase()}</strong></p>
             ${user.subscriptionType === 'free' ? `
               <a href="${process.env.APP_URL || 'http://localhost:3001'}/subscribe" 
-                 style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                  style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">
                 Upgrade to Premium
               </a>
             ` : ''}
@@ -195,7 +199,7 @@ class EmailService {
     `;
 
     return this.sendEmail(
-      process.env.ADMIN_EMAIL || process.env.GMAIL_USER,
+      process.env.ADMIN_EMAIL || process.env.SENDGRID_FROM_EMAIL || 'noreply@example.com',
       'SQL Newsletter - Test Email',
       testContent
     );
