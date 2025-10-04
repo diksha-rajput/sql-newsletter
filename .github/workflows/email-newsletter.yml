@@ -1,0 +1,26 @@
+name: Send Newsletter
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'  # Run weekly on Mondays at 10 AM UTC
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send latest draft newsletter
+      run: |
+        # First, get the latest draft newsletter
+        NEWSLETTER_ID=$(curl -s "${{ secrets.APP_URL }}/api/admin/newsletters?limit=1"           -H "Authorization: Bearer ${{ secrets.ADMIN_SECRET }}" |           jq -r '.newsletters[0].id // empty')
+
+        if [ ! -z "$NEWSLETTER_ID" ]; then
+          echo "Sending newsletter: $NEWSLETTER_ID"
+          curl -X POST "${{ secrets.APP_URL }}/api/admin/newsletter/$NEWSLETTER_ID/send"             -H "Authorization: Bearer ${{ secrets.ADMIN_SECRET }}"             -H "Content-Type: application/json"
+        else
+          echo "No newsletter found to send"
+        fi
+      env:
+        APP_URL: ${{ secrets.APP_URL }}
+        ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}

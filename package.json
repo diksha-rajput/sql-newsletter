@@ -1,0 +1,45 @@
+{
+  "name": "sql-newsletter-platform",
+  "version": "1.0.0",
+  "description": "Full-stack newsletter subscription platform for SQL interview preparation",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "node api/index.js",
+    "build": "cd client && npm run build",
+    "start": "node api/index.js",
+    "client": "cd client && npm start",
+    "install-client": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
+  },
+
+  
+
+  "dependencies": {
+    "axios": "^1.5.0",
+    "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.4"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "newsletter",
+    "sql",
+    "interview",
+    "mongodb",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
