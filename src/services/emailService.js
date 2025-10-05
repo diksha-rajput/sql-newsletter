@@ -199,7 +199,7 @@ class EmailService {
     `;
 
     return this.sendEmail(
-      process.env.ADMIN_EMAIL || process.env.SENDGRID_FROM_EMAIL || 'noreply@example.com',
+      process.env.ADMIN_EMAIL || process.env.SENDGRID_FROM_EMAIL || 'rehoser971@bllibl.com',
       'SQL Newsletter - Test Email',
       testContent
     );

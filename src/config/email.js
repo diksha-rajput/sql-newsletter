@@ -17,7 +17,7 @@ const sendEmail = async (to, subject, htmlContent) => {
     const transporter = createTransporter();
 
     const mailOptions = {
-      from: `SQL Newsletter <${process.env.SENDGRID_FROM_EMAIL || 'foboha7971@inilas.com'}>`,
+      from: `SQL Newsletter <${process.env.SENDGRID_FROM_EMAIL || 'rehoser971@bllibl.com'}>`,
       to: Array.isArray(to) ? to.join(', ') : to,
       subject: subject,
       html: htmlContent
