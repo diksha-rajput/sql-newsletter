@@ -21,8 +21,8 @@
     }
   ],
   "env": {
-    "MONGODB_URI": "@mongodb_uri",
-    "JWT_SECRET": "@jwt_secret",
+    "MONGODB_URI": "mongodb+srv://rushikeshs7:l0615CrW89tKhTlL@cluster0.dpdrczw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 ",
+    "JWT_SECRET": "your-super-secure-jwt-secret-key-here",
     "GMAIL_USER": "@gmail_user",
     "GMAIL_APP_PASSWORD": "@gmail_app_password",
     "ADMIN_EMAIL": "@admin_email"
