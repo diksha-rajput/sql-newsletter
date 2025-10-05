@@ -23,9 +23,5 @@
   "env": {
     "MONGODB_URI": "mongodb+srv://rushikeshs7:l0615CrW89tKhTlL@cluster0.dpdrczw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 ",
     "JWT_SECRET": "your-super-secure-jwt-secret-key-here",
-    "APP_URL"="http://localhost:3001",
-    "SENDGRID_USER"="apikey", 
-    "SENDGRID_PASS"="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", 
-    "SENDGRID_FROM_EMAIL"="rehoser971@bllibl.com" 
   }
 }
