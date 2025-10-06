@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line
 import React from 'react';
 
 const Footer = () => {
@@ -16,17 +15,34 @@ const Footer = () => {
               <span className="text-2xl font-bold">SQL Newsletter</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Master SQL interviews with our curated newsletter featuring daily tips, 
+              Master SQL interviews with our curated newsletter featuring daily tips,
               practice questions, and expert insights from top database professionals.
             </p>
+
+            {/* Social Links */}
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <i className="fab fa-twitter text-xl"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <i className="fab fa-linkedin text-xl"></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <i className="fab fa-github text-xl"></i>
               </a>
             </div>
@@ -36,10 +52,30 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
-              <li><a href="/subscribe" className="text-gray-400 hover:text-white transition-colors">Subscribe</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Archive</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+              <li>
+                <a href="/" className="text-gray-400 hover:text-white transition-colors">Home</a>
+              </li>
+              <li>
+                <a href="/subscribe" className="text-gray-400 hover:text-white transition-colors">Subscribe</a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => alert('Archive coming soon!')}
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  Archive
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => alert('FAQ coming soon!')}
+                  className="text-gray-400 hover:text-white transition-colors text-left"
+                >
+                  FAQ
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -58,7 +94,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} SQL Newsletter. All rights reserved. 
+            © {new Date().getFullYear()} SQL Newsletter. All rights reserved.
             Built with ❤️ for SQL learners.
           </p>
         </div>
