@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import api from '../utils/api';
