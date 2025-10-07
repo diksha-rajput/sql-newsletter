@@ -5,16 +5,9 @@
       "src": "api/index.js",
       "use": "@vercel/node"
     },
-    {
-      "src": "client/build/**",
-      "use": "@vercel/static"
-    },
     { 
         "src": "client/package.json", 
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "client/build"
-      }
+        "use": "@vercel/static-build"
     }
     
   ],
