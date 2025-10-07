@@ -11,9 +11,14 @@
     },
     { 
         "src": "client/package.json", 
-        "use": "@vercel/static-build" 
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "client/build"
+      }
     }
+    
   ],
+
   "routes": [
     {
       "src": "/api/(.*)",
@@ -21,7 +26,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"
+      "dest": "/client/build/index.html"
     }
   ]
 }
