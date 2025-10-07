@@ -15,11 +15,6 @@
     }
     
   ],
-  {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-  }
 
   "routes": [
     {
@@ -28,7 +23,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"
+      "dest": "/client/build/index.html"
     }
   ]
 }
